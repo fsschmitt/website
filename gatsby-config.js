@@ -3,26 +3,16 @@ module.exports = {
     title: `Engineering processes applied to our daily life`,
     author: {
       name: `Felipe Schmitt`,
-      summary: `Engineering, Leadership, Automation, Photography and Traveling`,
+      summary: `Software Development, Product Engineering, Leadership, Culture, Photography and Traveling`,
       visit: [`🇦🇩`,`🇦🇹`,`🇧🇪`,`🇧🇬`,`🇭🇷`,`🇨🇿`,`🇩🇰`,`🏴󠁧󠁢󠁥󠁮󠁧󠁿`,`🇪🇪`,`🇫🇮`,`🇫🇷`,`🇩🇪`,`🇭🇺`,`🇮🇹`,`🇱🇻`,`🇱🇹`,`🇱🇺`,`🇲🇨`,`🇳🇴`,`🇵🇱`,`🇵🇹`,`🇷🇴`,`🇷🇺`,`🇷🇸`,`🇸🇰`,`🇪🇸`,`🇸🇪`,`🇨🇭`,`🇳🇱`,`🇻🇦`,`🇹🇷`,`🇧🇳`,`🇰🇭`,`🇨🇳`,`🇭🇰`,`🇮🇳`,`🇮🇱`,`🇯🇵`,`🇯🇴`,`🇱🇦`,`🇲🇴`,`🇲🇾`,`🇲🇲`,`🇵🇸`,`🇸🇬`,`🇿🇦`,`🇹🇼`,`🇹🇭`,`🇻🇳`,`🇦🇬`,`🇨🇦`,`🇨🇷`,`🇨🇺`,`🇩🇴`,`🇬🇵`,`🇬🇹`,`🇲🇶`,`🇲🇽`,`🇳🇮`,`🇵🇦`,`🇰🇳`,`🇻🇨`,`🇺🇸`,`🇦🇷`,`🇧🇴`,`🇧🇷`,`🇨🇱`,`🇨🇴`,`🇵🇾`,`🇵🇪`,`🇺🇾`,`🇦🇺`,`🇿🇦`],
       lived: [`🇧🇷`, `🇵🇹`, `🇩🇪`, `🇬🇧`, `🇨🇦`, `🇩🇰`],
-      distance: `768,291 km`,
     },
-    description: `Generating value by bringing startup culture, towards large corporations and decrease the product life-cycle.`,
     siteDescription: `A blog about engineering, leadership, venture building and culture.`,
     siteUrl: `https://felipeschmitt.com/`,
     social: [
       {
         name: `twitter`,
         url: `https://twitter.com/schmittfelipe`,
-      },
-      {
-        name: `500px`,
-        url: `https://500px.com/fsschmitt`,
-      },
-      {
-        name: `behance`,
-        url: `https://www.behance.net/fsschmitt`,
       },
       {
         name: `github`,
@@ -33,8 +23,12 @@ module.exports = {
         url: `https://www.linkedin.com/in/felipeschmitt/`,
       },
       {
-        name: `email`,
-        url: `contact@felipeschmitt.com`,
+        name: `500px`,
+        url: `https://500px.com/fsschmitt`,
+      },
+      {
+        name: `about`,
+        url: `/initial-commit`,
       },
     ],
   },
