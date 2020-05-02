@@ -52,6 +52,7 @@ class Layout extends React.Component {
             marginBottom: 0,
             height: 42, // because
             lineHeight: '2.625rem',
+            display: 'contents',
           }}
         >
           <Link
