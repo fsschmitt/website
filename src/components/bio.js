@@ -16,7 +16,7 @@ const Bio = () => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed {
             ...GatsbyImageSharpFixed
           }
         }
@@ -26,43 +26,82 @@ const Bio = () => {
           author {
             name
             summary
+            lived
           }
+          siteDescription
           social {
-            twitter
+            name
+            url
           }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author, siteDescription, social } = data.site.siteMetadata
   return (
     <div
       style={{
-        display: `flex`,
         marginBottom: rhythm(2.5),
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
+      <div
         style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
+          display: `flex`,
+          flexWrap: `wrap`,
         }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
-      <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
+      >
+        <Image
+          fixed={data.avatar.childImageSharp.fixed}
+          alt={author.name}
+          style={{
+            marginRight: rhythm(1 / 2),
+            marginBottom: 0,
+            minWidth: 50,
+            borderRadius: `100%`,
+            width: 56,
+            height: 56,
+          }}
+          imgStyle={{
+            borderRadius: `50%`,
+          }}
+        />
+        <div
+          style={{
+            margin: 0,
+          }}
+        >
+          <div
+            style={{
+              fontSize: rhythm(0.8),
+              lineHeight: `28px`,
+              margin: "0",
+            }}
+          >
+            Written by {author.name}
+          </div>
+          {siteDescription}
+          <div
+            style={{
+              flexBasis: `100%`,
+              height: 0,
+            }}
+          />
+          <div>
+            {social.map(social => (
+              <a
+                key={social.name}
+                href={social.url}
+                style={{
+                  marginRight: `${rhythm(0.3)}`,
+                }}
+              >
+                {social.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

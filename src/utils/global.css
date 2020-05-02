@@ -1,0 +1,47 @@
+body {
+  --bg: white;
+  --bgSecondary: #f7f7f7;
+  --textNormal: #222;
+  --textTitle: #222;
+  --textLink: #46BAB3;
+  --hr: hsla(0, 0%, 0%, 0.2);
+
+  background-color: var(--bg);
+}
+
+body.dark {
+  -webkit-font-smoothing: antialiased;
+
+  --bg: #222;
+  --bgSecondary: #444;
+  --textNormal: rgba(255, 255, 255, 0.88);
+  --textTitle: white;
+  --textLink: #46BAB3;
+  --hr: hsla(0, 0%, 100%, 0.2);
+}
+
+body.dark strong {
+  color: rgba(255, 255, 255, 1);
+}
+
+.gatsby-highlight {
+  background-color: var(--bgSecondary);
+  border-radius: 0.3em;
+  margin: 0.5em 0;
+  padding: 1em;
+  overflow: auto;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.gatsby-highlight pre[class*="language-"] code {
+  color: var(--textNormal);
+  text-shadow: 0 1px var(--bg);
+}
