@@ -147,8 +147,10 @@ Here we can clearly see that the pod was `killed` due to the fact that both of o
 
 This would enable us to understand that our application was showing some unhealthy symptoms that would need to be explored within our code on what was causing our application to stop responding every 30s.
 
-Nonetheless by implementing our `Readiness` and `Liveness` probe, we have made sure that our pod health status reflects our application's health, as well as Kubernetes is aware of these metrics and is able to react accordingly. In this case, by restarting the pods everytime it is unhealthy will bring the pod back to an healthy state, being able to reply `pong` to our customers, decreasing the downtime of our so much valued service.
+Nonetheless by implementing our `Readiness` and `Liveness` probe, we have made sure that our pod health status reflects our application's health, as well as Kubernetes is aware of these metrics and is able to react accordingly. In this case, by restarting the pods every time it is unhealthy will bring the pod back to an healthy state, being able to reply `pong` to our customers, decreasing the downtime of our so much valued service.
 
 ## Conclusion
 
-This is the first blog post of our **"Cloud Native monitoring at scale"** series, as to which we will evolve from identifying all steps to expose our application's health and monitor at scale and ultimately leverage this system to build a full-fledge and automated system to get alerted whenever something across our entire application, system or organization goes wrong.
+This is the first blog post of our **"Cloud Native monitoring at scale"** series, as to which we will evolve from identifying all steps to expose our application's health and monitor at scale and ultimately leverage this system to build a full-fledged and automated system to get alerted whenever something across our entire application, system or organization goes wrong.
+
+If you feel like discussing more about how monitoring not only your infrastructure, but also all layers that can impact your business are crucial to your organization, then reach out to me [on Twitter](https://twitter.com/schmittfelipe).
