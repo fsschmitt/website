@@ -1,5 +1,5 @@
 ---
-title: Cloud Native Monitoring at Scale - Application's Health
+title: Cloud Native Monitoring at Scale (Part 1) - Application's Health
 date: "2020-11-29T18:00:03.284Z"
 description: "As part of Cloud Native Monitoring at Scale, this post aims to tackle the first step to indentify our application's health status and make that metric available to our orchestration layer."
 tags: [kubernetes, monitoring, devops, cloudnative]

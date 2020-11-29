@@ -1,5 +1,5 @@
 ---
-title: Cloud Native Monitoring at Scale - Collecting Metrics
+title: Cloud Native Monitoring at Scale (Part 2) - Collecting Metrics
 date: "2020-11-29T20:00:03.284Z"
 description: "As part of our series Cloud Native Monitoring at Scale, this post aims to understand why exposing metrics of our applications is so important and why they are relevant to our ability to monitor systems at scale."
 tags: [kubernetes, monitoring, devops, cloudnative]
@@ -119,7 +119,7 @@ Once we managed to have the metrics of all these different layers being exposed,
 - Alertmanager (Alerts management)
 - Grafana (Metrics Visualisation)
 
-![Prometheus architecture](https://dev-to-uploads.s3.amazonaws.com/i/7g1hufqab6o1vbia8tdw.png)
+![Prometheus architecture](https://dev-to-uploads.s3.amazonaws.com/i/c8gxetrbdt8le4cbfepo.png)
 
 ## Metrics collection and monitoring
 
