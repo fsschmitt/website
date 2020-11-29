@@ -2,14 +2,14 @@
 title: Cloud Native Monitoring at Scale - Collecting Metrics
 date: "2020-11-29T20:00:03.284Z"
 description: "As part of our series Cloud Native Monitoring at Scale, this post aims to understand why exposing metrics of our applications is so important and why they are relevant to our ability to monitor systems at scale."
-tags: [kubernetes, monitoring, devops, cloudnative]
+tags: [kubernetes, monitoring, DevOps, cloudnative]
 ---
 
 # Introduction
 
-As we move towards a Cloud Native world, where loads are ephemeral, horizontal scaling is key and microsservices are the norm, monitoring all these spread out components becomes not only essential, but mandatory on any production-ready environment.
+As we move towards a Cloud Native world, where loads are ephemeral, horizontal scaling is key and microservices are the norm, monitoring all of these spread out components becomes not only essential, but mandatory on any production-ready environment.
 
-This post is part of a series named **Cloud Native Monitoring at Scale** which focuses on all stages of monitoring across a cloud native application deployed on Kubernetes. Since from a single running application to understand if it is up and running as expected (check my [previous post](https://felipeschmitt.com/cloud-native-monitoring-app-health/)) all the way to having multiple k8s clusters running multiple applications simultaneously.
+This post is part of a series named **Cloud Native Monitoring at Scale** which focuses on all stages of monitoring across a cloud-native application deployed on Kubernetes. Since from a single running application to understand if it is up and running as expected (check my [previous post](https://felipeschmitt.com/cloud-native-monitoring-app-health/)) all the way to having multiple k8s clusters running multiple applications simultaneously.
 
 This post aims to understand why exposing metrics of our applications is so important and why they are relevant to our ability to monitor systems at scale.
 
@@ -26,9 +26,9 @@ These metrics can be sourced from multiple levels of abstraction on which our ap
 
 # Why are metrics important?
 
-Metrics are a way into understanding better the behaviour and symptoms of our systems which enable us to act on them, possibly preventing worsen scenarios such as service degradation or even downtime.
+Metrics are a way into understanding better the behavior and symptoms of our systems which enable us to act on them, possibly preventing worsen scenarios such as service degradation or even downtime.
 
-A good way to look at metrics is by doing an analogy with the a very well known complex system that we interact with every single day: **The human body**.
+A good way to look at metrics is by doing an analogy with a very well known complex system that we interact with every single day: **The human body**.
 
 Our own bodies expose metrics all the time such as:
 - Body temperature
@@ -38,11 +38,11 @@ Our own bodies expose metrics all the time such as:
 
 ![Human vitals monitoring](https://dev-to-uploads.s3.amazonaws.com/i/w71l0ojys0gsi1ncbw3z.png)
 
-These metrics enable us (or doctors) to have a deeper understanding about the overall status of our (body) systems and identify certain thresholds on which abnormal behaviour can trigger an alert/concern.
+These metrics enable us (or doctors) to have a deeper understanding about the overall status of our (body) systems and identify certain thresholds on which abnormal behavior can trigger an alert/concern.
 
-For example, if our Body Temperature is above 38ºC (100.4ºF) we identify this symptom has having a fever which can have multiple root causes behind it (infectious desease, immonological diseases, metabolic disorders, etc.) but it helps us understand that something within our overall system is not within the "normal" threshold and should be investigated further.
+For example, if our Body Temperature is above 38ºC (100.4ºF) we identify this symptom has having a fever which can have multiple root causes behind it (infectious disease, immunological diseases, metabolic disorders, etc.) but it helps us understand that something within our overall system is not within the "normal" threshold and should be investigated further.
 
-Our applications are no different, exposing metrics about our applications such as response latency, error rate, number of cache miss, etc. allows us to monitor these metrics and understand whenever an abnormal behaviour is present and start investigating what the root cause might be.
+Our applications are no different, exposing metrics about our applications such as response latency, error rate, number of cache miss events, etc. allows us to monitor these metrics and understand whenever an abnormal behavior is present and start investigating what the root cause might be.
 
 # Exposing metrics
 
@@ -91,7 +91,7 @@ These metrics can be exposed by using tools such as [kube-state-metrics](https:/
 
 ### Application layer
 
-As this layer is the one that varies the most and is can be tailor-made to whatever business value your application aims to bring, on most cases it requires us to do an exploration of what key metrics are valuable about our application use-case that will matter the most when we want to understand its behaviour and automate its monitoring.
+As this layer is the one that varies the most and is can be tailor-made to whatever business value your application aims to bring, on most cases it requires us to do an exploration of what key metrics are valuable about our application use-case that will matter the most when we want to understand its behavior and automate its monitoring.
 
 In our scenario, our application which focuses on reading messages from a certain queue, then based on some business logic sends an email with a certain template.
 
@@ -113,7 +113,7 @@ By implementing and exposing these metrics it enables our monitoring stack to no
 
 # Metrics collection and analysis
 
-Once we managed to have the metrics of all these different layers being exposed, we need to collect and store them in a way that would enable us to query and analyze their value over time. [Prometheus](https://prometheus.io), being the second hosted project at CNCF, right after Kubernetes, makes it the cloud native industry standard for metric collection, monitoring and alerting. This stack can be composed by the following components:
+Once we managed to have the metrics of all these different layers being exposed, we need to collect and store them in a way that would enable us to query and analyze their value over time. [Prometheus](https://prometheus.io), being the second hosted project at CNCF, right after Kubernetes, makes it the cloud-native industry standard for metrics collection, monitoring and alerting. This stack can be composed by the following components:
 
 - Prometheus (Metrics Collection and Monitoring)
 - Alertmanager (Alerts management)
@@ -127,7 +127,7 @@ Prometheus main responsibility is to scrape target endpoints to collect metrics 
 - Pre-defined HTTP endpoints (e.g. https://example.com/metrics);
 - Service Discovery (e.g. Kubernetes Prometheus Operator [ServiceMonitor](https://coreos.com/blog/the-prometheus-operator.html))
 
-Upon the collection of these metrics, Prometheus enables the usage of its own query language [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) to analyse these metrics and get more information about all of our systems, e.g.:
+Upon the collection of these metrics, Prometheus enables the usage of its own query language [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) to analyze these metrics and get more information about all of our systems, e.g.:
 
 ```go
 http_requests_total{app={"email_processor"}}[5m]
@@ -161,7 +161,7 @@ Alertmanager not only handles the routing of these alerts to external vendors su
 - Silencing and inhibition
 - High Availability (deployed as a cluster)
 
-Which are highly useful core functionalities to prevent [alert fatigue](https://en.wikipedia.org/wiki/Alarm_fatigue) and better handle alerts across an environemnt.
+Which are highly useful core functionalities to prevent [alert fatigue](https://en.wikipedia.org/wiki/Alarm_fatigue) and better handle alerts across an environment.
 
 Alertmanager also allows to route alerts based on predefined labels, such as the `severity: warning` defined in the alert example exposed above.
 
@@ -169,6 +169,6 @@ Alertmanager also allows to route alerts based on predefined labels, such as the
 
 The exposure, collection and analysis of metrics of all layers that have an impact in our infrastructure, orchestration and application which at the end of the day could hinder our capability of generating business value is not only important but essential to enable the early detection of issues within our engineering solutions.
 
-Leveraging these tools to increase our observability across our entire stack, not only empowers an SRE team to more easily do its job, but also the ability to analyse metrics and its impact on the overall health of the system.
+Leveraging these tools to increase our observability across our entire stack, not only empowers an SRE team to more easily do its job, but also the ability to analyze metrics and its impact on the overall health of the system.
 
 If you feel like discussing more about how monitoring not only your infrastructure, but also all layers that can impact your business are crucial to your organization, then reach out to me [on Twitter](https://twitter.com/schmittfelipe).

@@ -1,19 +1,19 @@
 ---
 title: Cloud Native Monitoring at Scale - Application's Health
 date: "2020-11-29T18:00:03.284Z"
-description: "As part of Cloud Native Monitoring at Scale, this post aims to tackle the first step to indentify our application's health status and make that metric available to our orchestration layer."
-tags: [kubernetes, monitoring, devops, cloudnative]
+description: "As part of Cloud Native Monitoring at Scale, this post aims to tackle the first step to identify our application's health status and make that metric available to our orchestration layer."
+tags: [kubernetes, monitoring, DevOps, cloudnative]
 ---
 
 # Introduction
 
-As we move towards a Cloud Native world, where loads are ephemeral, horizontal scaling is key and microsservices are the norm, monitoring all these spread out components becomes not only essential, but mandatory on any production-ready environment.
+As we move towards a Cloud Native world, where loads are ephemeral, horizontal scaling is key and microservices are the norm, monitoring all of these spread out components becomes not only essential, but mandatory on any production-ready environment.
 
-We will navigate through a series named **Cloud Native Monitoring at Scale** which focuses on all stages of monitoring across a cloud native application deployed on Kubernetes. Since from a single running application to understand if it is up and running as expected (this post) all the way to having multiple k8s clusters running multiple applications simultaneously.
+We will navigate through a series named **Cloud Native Monitoring at Scale** which focuses on all stages of monitoring across a cloud-native application deployed on Kubernetes. Since from a single running application to understand if it is up and running as expected (this post) all the way to having multiple k8s clusters running multiple applications simultaneously.
 
 # Cloud Native Application's health
 
-On this blog post we will go through the process of developing a cloud native application and making sure that it's up and running at a `pod` level, by leveragint the built-in capabilities within Kubernetes of `Readiness` and `Liveness` probes.
+On this blog post we will go through the process of developing a cloud-native application and making sure that it's up and running at a `pod` level, by leveraging the built-in capabilities within Kubernetes of `Readiness` and `Liveness` probes.
 
 ### Goal
 
@@ -22,7 +22,7 @@ Create an application that replies with `pong` on a `/ping` endpoint.
 ### Steps
 
 1. Dockerize our development environment;
-2. Develop an application on a "cloud native friendly" programming language such as Go, Rust or Deno;
+2. Develop an application on a "cloud-native friendly" programming language such as Go, Rust or Deno;
 3. Describe and implement all tests to validate most (if not all) of our use-cases;
 5. Deploy our application to our test/integration environment, make all smoke tests and validations;
 6. Get the green light and promote the application to a production environment;
@@ -63,7 +63,7 @@ curl: (28) Operation timed out after 10003 milliseconds with 0 bytes received
 
 This is awkward, we have tested our application, the deployment is working just fine, but apparently after a while our application stops working but this is not reflected in our Kubernetes environment.
 
-For this excercise, we have created a small "kill switch" that breaks the application 30 seconds after it first started running, as we could've seen through the logs:
+For this exercise, we have created a small "kill switch" that breaks the application 30 seconds after it first started running, as we could've seen through the logs:
 
 ```console
 → kubectl logs app-basic-6b6dd6b98f-6t7jl
@@ -73,7 +73,7 @@ For this excercise, we have created a small "kill switch" that breaks the applic
 
 ### Kubernetes to the rescue
 
-Well this is where the Kubernetes concept of [Readiness and Liveness Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) comes in handy, it allows the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) to peridiocally check the status of a pod by probing an endpoint to understand the its state.
+Well this is where the Kubernetes concept of [Readiness and Liveness Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) comes in handy, it allows the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) to periodically check the status of a pod by probing an endpoint to understand its state.
 
 #### Liveness vs. Readiness probe
 
@@ -115,7 +115,7 @@ containers:
     ...
 ```
 
-The implementation of the `/health` and `/ready` endpoints are part of the application's responsibility as these can have different meaning across all kinds of applications, in our specific case, these two concepts can be overalapped and use the `/pong` endpoint as our check if our application is alive and ready.
+The implementation of the `/health` and `/ready` endpoints are part of the application's responsibility as these can have different meaning across all kinds of applications, in our specific case, these two concepts can be overlapped and use the `/pong` endpoint as our check if our application is alive and ready.
 
 If we look back into our `pong` application, by having the `timeoutSeconds` set to 1s, and having `periodSeconds` as 5s (kubelet will probe this endpoint every 5s), it would detect that the endpoint was taking more than 1 second to respond, causing the pod to restart and enabling our application to receive requests. 
 
@@ -147,7 +147,7 @@ Here we can clearly see that the pod was `killed` due to the fact that both of o
 
 This would enable us to understand that our application was showing some unhealthy symptoms that would need to be explored within our code on what was causing our application to stop responding every 30s.
 
-Nonetheless by implementing our `Readiness` and `Liveness` probe, we have made sure that our pod health status reflects our application's health, as well as Kubernetes is aware of these metrics and is able to react accordingly. In this case, by restarting the pods every time it is unhealthy will bring the pod back to an healthy state, being able to reply `pong` to our customers, decreasing the downtime of our so much valued service.
+Nonetheless by implementing our `Readiness` and `Liveness` probe, we have made sure that our pod health status reflects our application's health, as well as Kubernetes is aware of these metrics and is able to react accordingly. In this case, by restarting the pods every time it is unhealthy will bring the pod back to a healthy state, being able to reply `pong` to our customers, decreasing the downtime of our so much valued service.
 
 ## Conclusion
 
