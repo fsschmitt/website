@@ -1,5 +1,5 @@
 ---
-title: Cloud Native Monitoring at Scale (Part 2) - Collecting Metrics
+title: Cloud Native Monitoring at Scale - Collecting Metrics
 date: "2020-11-29T20:00:03.284Z"
 description: "As part of our series Cloud Native Monitoring at Scale, this post aims to understand why exposing metrics of our applications is so important and why they are relevant to our ability to monitor systems at scale."
 tags: [kubernetes, monitoring, devops, cloudnative]
@@ -9,7 +9,7 @@ tags: [kubernetes, monitoring, devops, cloudnative]
 
 As we move towards a Cloud Native world, where loads are ephemeral, horizontal scaling is key and microsservices are the norm, monitoring all these spread out components becomes not only essential, but mandatory on any production-ready environment.
 
-This post is part of a series named **Cloud Native Monitoring at Scale** which focuses on all stages of monitoring across a cloud native application deployed on Kubernetes. Since from a single running application to understand if it is up and running as expected (check my [previous post](https://dev.to/schmittfelipe/cloud-native-monitoring-at-scale-application-s-health-17n7)) all the way to having multiple k8s clusters running multiple applications simultaneously.
+This post is part of a series named **Cloud Native Monitoring at Scale** which focuses on all stages of monitoring across a cloud native application deployed on Kubernetes. Since from a single running application to understand if it is up and running as expected (check my [previous post](https://felipeschmitt.com/cloud-native-monitoring-app-health/)) all the way to having multiple k8s clusters running multiple applications simultaneously.
 
 This post aims to understand why exposing metrics of our applications is so important and why they are relevant to our ability to monitor systems at scale.
 
