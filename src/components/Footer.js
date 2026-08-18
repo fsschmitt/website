@@ -1,6 +1,6 @@
 import React from "react"
+import { StaticQuery, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
-import { StaticQuery } from "gatsby"
 
 class Footer extends React.Component {
   render() {
