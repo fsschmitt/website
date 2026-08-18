@@ -64,7 +64,11 @@ export default class Toggle extends PureComponent {
     }
 
     this.setState({ checked: checkbox.checked });
-    trackCustomEvent('send', 'event', 'Dark mode', `${checkbox.checked}`);
+    trackCustomEvent({
+      category: "Dark mode",
+      action: "toggle",
+      label: `${checkbox.checked}`,
+    });
   }
 
   handleTouchStart(event) {

@@ -29,7 +29,14 @@ const SEO = ({ description, lang, meta, title, url, image }) => {
   )
 
   const metaDescription = description || site.siteMetadata.siteDescription
-  const imageSrc = image ? `${site.siteMetadata.siteUrl}${image.childImageSharp.fluid.src}` : ""
+  const imageSrc = image
+    ? `${site.siteMetadata.siteUrl}${
+        image.childImageSharp?.gatsbyImageData?.images?.fallback?.src ||
+        image.publicURL ||
+        ""
+      }`
+    : ""
+
 
   return (
     <Helmet
